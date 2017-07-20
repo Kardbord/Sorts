@@ -22,11 +22,11 @@ public class Main {
         int capacity = 10;
         ArrayList<Integer> c = new ArrayList<>(capacity);
 
-        for (int i = 0; i < capacity; ++i){
+        for (int i = 0; i < capacity; ++i) {
             c.add(gen.nextInt(101));
         }
 
-        for(Integer e : c){
+        for (Integer e : c) {
             System.out.println(e);
         }
 
@@ -34,7 +34,7 @@ public class Main {
 
         c = Sorts.bubbleSort(c);
 
-        for (Integer e: c){
+        for (Integer e : c) {
             System.out.println(e);
         }
     }
