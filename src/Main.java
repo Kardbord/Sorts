@@ -27,15 +27,15 @@ public class Main {
         }
 
         for (Integer e : c) {
-            System.out.println(e);
+            System.out.print(e + ", ");
         }
-
-        System.out.println("---------------------------------------------");
 
         c = Sorts.bubbleSort(c);
 
+        System.out.print("|--- Sorted ---> ");
+
         for (Integer e : c) {
-            System.out.println(e);
+            System.out.print(e + ", ");
         }
     }
 }
