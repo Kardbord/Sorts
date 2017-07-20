@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -26,15 +27,20 @@ public class Main {
             c.add(gen.nextInt(101));
         }
 
-        for (Integer e : c) {
+        printSortPrint(c);
+
+    }
+
+    private static <U extends Comparable<U>, T extends List<U>> void printSortPrint(T container) {
+        for (U e : container) {
             System.out.print(e + ", ");
         }
 
-        c = Sorts.bubbleSort(c);
+        container = Sorts.bubbleSort(container);
 
         System.out.print("|--- Sorted ---> ");
 
-        for (Integer e : c) {
+        for (U e : container) {
             System.out.print(e + ", ");
         }
     }
