@@ -1,14 +1,14 @@
 import java.util.List;
 
 /**
- * Sorts.Sorts
+ * Sorts
  * Created on 2/16/2017
  *
  * This is a static class to contain various sorting methods
  *
- * I make no promises about the completeness or efficiency of this class.
- * This is mostly just for fun and to give me a starting point to write
- * bubble sort in assembly later.
+ * Various sorts written in Java. Just for fun/practice. Originally began this project to give myself a basis for
+ * writing bubble sort in MIPS assembly language.
+ * I make no promises about the completeness or efficiency of this class or project.
  *
  * @author Tanner Kvarfordt
  * @version 1.0
