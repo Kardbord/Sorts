@@ -30,7 +30,7 @@ public final class Sorts {
     public static <U extends Comparable<U>, T extends List<U>> T bubbleSort(T container) {
         for (int j = container.size() - 1; j >= 0; --j) {
             for (int i = 0; i < j; ++i) {
-                if (container.get(i).compareTo(container.get(i + 1))) {
+                if (container.get(i).compareTo(container.get(i + 1)) > 0) {
                     U temp = container.get(i + 1);
                     container.remove(i + 1);
                     container.add(i + 1, container.get(i));
