@@ -15,7 +15,7 @@ import java.util.Random;
 public class Main {
 
     /**
-     * @param args command line args
+     * @param args command line args that I don't use in this project
      */
     public static void main(String[] args) {
         Random gen = new Random();
