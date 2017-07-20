@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Sorts.Sorts
@@ -27,11 +27,11 @@ public final class Sorts {
      * @param container the container to be sorted
      * @return the sorted container
      */
-    public static ArrayList<Integer> bubbleSort(ArrayList<Integer> container) {
+    public static <U extends Comparable<U>, T extends List<U>> T bubbleSort(T container) {
         for (int j = container.size() - 1; j >= 0; --j) {
             for (int i = 0; i < j; ++i) {
-                if (container.get(i) > container.get(i + 1)) {
-                    int temp = container.get(i + 1);
+                if (container.get(i).compareTo(container.get(i + 1))) {
+                    U temp = container.get(i + 1);
                     container.remove(i + 1);
                     container.add(i + 1, container.get(i));
                     container.remove(i);
