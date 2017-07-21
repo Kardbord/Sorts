@@ -1,13 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.text.DecimalFormat;
+import java.util.*;
 
 /**
  * Sorts.Sorts
  * Created on 2/16/2017
  *
- * Sorts.Sorts.Main class for the Sorts.Sorts project
- * This class's primary purpose is for testing methods from Sorts.Sorts.java
+ * Main class for the Sorts project
+ * This class's primary purpose is for testing methods from the Sorts class.
+ * To change the sort method used, uncomment the desired sort in the Main::printSortPrint method.
  *
  * @author Tanner Kvarfordt
  * @version 1.0
@@ -22,25 +22,71 @@ public class Main {
 
         int capacity = 10;
 
-        ArrayList<Integer> c = new ArrayList<>(capacity);
+        // Make some things to sort
+        ArrayList<Integer> a = new ArrayList<>(capacity);
+        Vector<Character> v = new Vector<>(capacity);
+        LinkedList<Double> l = new LinkedList<>();
+        ArrayList<String> s = new ArrayList<>(capacity);
+        Vector<String> v2 = new Vector<>(capacity);
 
+        // Put some stuff in the things
         for (int i = 0; i < capacity; ++i) {
-            c.add(gen.nextInt(101));
+            a.add(gen.nextInt(101));
+            l.add(gen.nextDouble());
+            s.add(randString(1));
+            v2.add(randString(2));
         }
 
-        printSortPrint(c);
+        for (char c = 'a' + 9; c >= 'a'; --c) {
+            v.add(c);
+        }
 
+        // Sort and print the things :)
+        printSortPrint(a);
+        System.out.println();
+        printSortPrint(v);
+        System.out.println();
+        printSortPrint(l);
+        System.out.println();
+        printSortPrint(s);
+        System.out.println();
+        printSortPrint(v2);
     }
 
+    /**
+     * Prints container, sorts container using the uncommented sort method, prints the sorted container.
+     *
+     * @param container is the container to be printed, sorted, and printed.
+     * @param <U>       is some comparable data type.
+     * @param <T>       is a List of U.
+     */
     private static <U extends Comparable<U>, T extends List<U>> void printSortPrint(T container) {
-        for (U e : container) {
-            System.out.print(e + ", ");
-        }
+        printContainer(container);
+
+        container = Sorts.bubbleSort(container);
+        // More sort methods to come
 
         System.out.print("|--- Sorted ---> ");
 
-        for (U e :  Sorts.bubbleSort(container)) {
-            System.out.print(e + ", ");
+        printContainer(container);
+    }
+
+    private static <U extends Comparable<U>, T extends List<U>> void printContainer(T container) {
+        for (U e : container) {
+            if (e instanceof Double || e instanceof Float) {
+                DecimalFormat df = new DecimalFormat("0.00");
+                System.out.print(df.format(e) + ", ");
+            } else System.out.print(e + ", ");
         }
+    }
+
+    private static String randString(int length) {
+        String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder rand = new StringBuilder();
+        Random gen = new Random();
+        for (int i = 0; i < length; ++i) {
+            rand.append(candidateChars.charAt(gen.nextInt(candidateChars.length())));
+        }
+        return rand.toString();
     }
 }
