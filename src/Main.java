@@ -70,6 +70,9 @@ public class Main {
         printContainer(container);
     }
 
+    /**
+     * @param container will have its contents printed on a line
+     */
     private static <U extends Comparable<U>, T extends List<U>> void printContainer(T container) {
         for (U e : container) {
             if (e instanceof Double || e instanceof Float) {
@@ -79,6 +82,12 @@ public class Main {
         }
     }
 
+    /**
+     * Generates and returns a random String of the given length containing characters A through Z
+     *
+     * @param length of the random string to be generated
+     * @return a random string of the given length
+     */
     private static String randString(int length) {
         String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder rand = new StringBuilder();
