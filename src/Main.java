@@ -21,6 +21,7 @@ public class Main {
         Random gen = new Random();
 
         int capacity = 10;
+
         ArrayList<Integer> c = new ArrayList<>(capacity);
 
         for (int i = 0; i < capacity; ++i) {
@@ -36,11 +37,9 @@ public class Main {
             System.out.print(e + ", ");
         }
 
-        container = Sorts.bubbleSort(container);
-
         System.out.print("|--- Sorted ---> ");
 
-        for (U e : container) {
+        for (U e :  Sorts.bubbleSort(container)) {
             System.out.print(e + ", ");
         }
     }
