@@ -30,15 +30,14 @@ public class Main {
         Vector<String> v2 = new Vector<>(capacity);
 
         // Put some stuff in the things
+        char c = 'a' + 9;
         for (int i = 0; i < capacity; ++i) {
             a.add(gen.nextInt(101));
             l.add(gen.nextDouble());
             s.add(randString(1));
             v2.add(randString(2));
-        }
-
-        for (char c = 'a' + 9; c >= 'a'; --c) {
             v.add(c);
+            --c;
         }
 
         // Sort and print the things :)
