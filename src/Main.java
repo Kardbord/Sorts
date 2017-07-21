@@ -64,6 +64,7 @@ public class Main {
 
         container = Sorts.bubbleSort(container);
         // More sort methods to come
+        // TODO: provide all possible sorting methods here in a comment block
 
         System.out.print("|--- Sorted ---> ");
 
