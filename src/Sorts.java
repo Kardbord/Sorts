@@ -44,16 +44,22 @@ public final class Sorts {
         return container;
     }
 
+    // TODO: add documentation
     public static <U extends Comparable<U>, T extends List<U>> T insertionSort(T container) {
         ArrayList<U> bucket = new ArrayList<>(container.size());
 
         for (U e : container) {
             if (bucket.isEmpty()) bucket.add(e);
             else {
-                for (int j = 0; j <= bucket.size(); ++j) {
-                    if (j == bucket.size()) bucket.add(e);
+                boolean inserted = false;
+                for (int j = 0; !inserted && j <= bucket.size(); ++j) {
+                    if (j == bucket.size()) {
+                        bucket.add(e);
+                        inserted = true;
+                    }
                     else if (e.compareTo(bucket.get(j)) < 0) {
                         bucket.add(j, e);
+                        inserted = true;
                     }
                 }
             }
