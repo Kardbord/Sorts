@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,6 +41,26 @@ public final class Sorts {
             }
         }
 
+        return container;
+    }
+
+    public static <U extends Comparable<U>, T extends List<U>> T insertionSort(T container) {
+        ArrayList<U> bucket = new ArrayList<>(container.size());
+
+        for (U e : container) {
+            if (bucket.isEmpty()) bucket.add(e);
+            else {
+                for (int j = 0; j <= bucket.size(); ++j) {
+                    if (j == bucket.size()) bucket.add(e);
+                    else if (e.compareTo(bucket.get(j)) < 0) {
+                        bucket.add(j, e);
+                    }
+                }
+            }
+        }
+
+        container.clear();
+        container.addAll(bucket);
         return container;
     }
 

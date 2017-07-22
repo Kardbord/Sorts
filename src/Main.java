@@ -62,7 +62,8 @@ public class Main {
     private static <U extends Comparable<U>, T extends List<U>> void printSortPrint(T container) {
         printContainer(container);
 
-        container = Sorts.bubbleSort(container);
+        //container = Sorts.bubbleSort(container);
+        container = Sorts.insertionSort(container);
         // More sort methods to come
         // TODO: provide all possible sorting methods here in a comment block
 
