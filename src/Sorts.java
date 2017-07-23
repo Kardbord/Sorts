@@ -23,7 +23,8 @@ public final class Sorts {
     }
 
     /**
-     * An O(n^2) algorithm for sorting
+     * An O(n^2) algorithm for sorting.
+     * https://en.wikipedia.org/wiki/Bubble_sort
      *
      * @param container the container to be sorted
      * @return the sorted container
@@ -44,7 +45,13 @@ public final class Sorts {
         return container;
     }
 
-    // TODO: add documentation
+    /**
+     * An O(n^2) algorithm for sorting.
+     * https://en.wikipedia.org/wiki/Insertion_sort
+     *
+     * @param container the container to be sorted
+     * @return the sorted container
+     */
     public static <U extends Comparable<U>, T extends List<U>> T insertionSort(T container) {
         ArrayList<U> bucket = new ArrayList<>(container.size());
 
@@ -56,8 +63,7 @@ public final class Sorts {
                     if (j == bucket.size()) {
                         bucket.add(e);
                         inserted = true;
-                    }
-                    else if (e.compareTo(bucket.get(j)) < 0) {
+                    } else if (e.compareTo(bucket.get(j)) < 0) {
                         bucket.add(j, e);
                         inserted = true;
                     }
