@@ -76,5 +76,31 @@ public final class Sorts {
         return container;
     }
 
+    /**
+     * An O(nlogn) algorithm for sorting.
+     *
+     * @param container to be sorted
+     * @return the sorted container
+     */
+    public static <U extends Comparable<U>, T extends List<U>> T mergeSort(T container) {
+        return mergeSort(container, 0, container.size() -1);
+    }
+
+
+    /**
+     * An O(nlogn) algorithm for sorting.
+     *
+     * @param container to be sorted
+     * @param i beginning of range to sort from
+     * @param k end of range to sort to
+     * @return the sorted container
+     */
+    public static <U extends Comparable<U>, T extends List<U>> T mergeSort(T container, int i, int k) {
+        // TODO: split list into two sublists
+        // TODO: sort each sublist recursively
+        // TODO: merge the two sublists
+        // TODO: return the sorted list
+    }
+
     // TODO: write more sorts
 }
