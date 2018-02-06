@@ -4,9 +4,9 @@ import java.util.*;
 /**
  * Sorts.Sorts
  * Created on 2/16/2017
- *
+ * <p>
  * Main class for the Sorts project
- * This class's primary purpose is for testing methods from the Sorts class.
+ * This class's primary purpose is for testing/demonstrating methods from the Sorts class.
  * To change the sort method used, uncomment the desired sort in the Main::printSortPrint method.
  *
  * @author Tanner Kvarfordt
@@ -62,10 +62,11 @@ public class Main {
     private static <U extends Comparable<U>, T extends List<U>> void printSortPrint(T container) {
         printContainer(container);
 
-        //container = Sorts.bubbleSort(container);
-        container = Sorts.insertionSort(container);
+        // container = Sorts.bubbleSort(container);
+        // container = Sorts.insertionSort(container);
+        Sorts.mergeSort(container);
         // More sort methods to come
-        // TODO: provide all possible sorting methods here in a comment block
+        // TODO: provide all sorting methods here in a comment block
 
         System.out.print("|--- Sorted ---> ");
 

@@ -78,12 +78,12 @@ public final class Sorts {
 
     /**
      * An O(nlogn) algorithm for sorting.
+     * https://en.wikipedia.org/wiki/Merge_sort
      *
      * @param container to be sorted
-     * @return the sorted container
      */
-    public static <U extends Comparable<U>, T extends List<U>> T mergeSort(T container) {
-        return mergeSort(container, 0, container.size() -1);
+    public static <U extends Comparable<U>, T extends List<U>> void mergeSort(T container) {
+        mergeSort(container, 0, container.size() - 1);
     }
 
 
@@ -93,14 +93,54 @@ public final class Sorts {
      * @param container to be sorted
      * @param i beginning of range to sort from
      * @param k end of range to sort to
-     * @return the sorted container
      */
-    public static <U extends Comparable<U>, T extends List<U>> T mergeSort(T container, int i, int k) {
-        // TODO: split list into two sublists
-        // TODO: sort each sublist recursively
-        // TODO: merge the two sublists
-        // TODO: return the sorted list
+    public static <U extends Comparable<U>, T extends List<U>> void mergeSort(T container, int i, int k) {
+        if (i == k) return;
+        int mid = (i + k) / 2;
+        mergeSort(container, i, mid);
+        mergeSort(container, mid + 1, k);
+        merge(container, i, mid, k);
+    }
+
+    /**
+     * Merge two sorted sub-lists into one list.
+     * O(n)
+     *
+     * @param container the overarching container
+     * @param i beginning index of first sublist
+     * @param mid ending index of first sublist; @mid + 1 is the beginning index of the second sublist
+     * @param k ending index of second sublist
+     */
+    private static <U extends Comparable<U>, T extends List<U>> void merge(T container, int i, int mid, int k) {
+        ArrayList<U> mergedList = new ArrayList<>();
+        int a = i;
+        int b = mid + 1;
+        while (a <= mid && b <= k) {
+            if (container.get(a).compareTo(container.get(b)) < 1) {
+                mergedList.add(container.get(a));
+                ++a;
+            } else {
+                mergedList.add(container.get(b));
+                ++b;
+            }
+        }
+
+        // copy any remaining items
+        while (a <= mid) {
+            mergedList.add(container.get(a));
+            ++a;
+        }
+
+        while (b <= k) {
+            mergedList.add(container.get(b));
+            ++b;
+        }
+
+        for (int j = i, d = 0; j <= k; ++j, ++d) {
+            container.set(j, mergedList.get(d));
+        }
     }
 
     // TODO: write more sorts
+    // TODO: quicksort, sleepsort, selectionsort
 }
