@@ -80,7 +80,7 @@ public final class Sorts {
 
     /**
      * An O(nlogn) algorithm for sorting.
-     * https://en.wikipedia.org/wiki/Merge_sort
+     * https://en.wikipedia.org/wiki/merge_sort
      *
      * @param container to be sorted
      */
@@ -90,6 +90,7 @@ public final class Sorts {
 
     /**
      * An O(nlogn) algorithm for sorting.
+     * https://en.wikipedia.org/wiki/merge_sort
      *
      * @param container to be sorted
      * @param i beginning of range to sort from
