@@ -62,11 +62,11 @@ public class Main {
     private static <U extends Comparable<U>, T extends List<U>> void printSortPrint(T container) {
         printContainer(container);
 
-        // container = Sorts.bubbleSort(container);
-        // container = Sorts.insertionSort(container);
+        // TODO: uncomment the desired sorting method
+        // Sorts.bubbleSort(container);
+        // Sorts.insertionSort(container);
         Sorts.mergeSort(container);
         // More sort methods to come
-        // TODO: provide all sorting methods here in a comment block
 
         System.out.print("|--- Sorted ---> ");
 
