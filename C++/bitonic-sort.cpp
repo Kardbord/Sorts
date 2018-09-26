@@ -102,6 +102,19 @@ bool validNumProcesses(unsigned const & size) {
     return ((size - 1) & size) == 0 && size != 1;
 }
 
+// Performs a bitonic sort
+//
+// param data  : the data belonging to the process
+// param i_bit : the most significant bit of the highest ranked process
+void bitonic_sort(int & data, int const & i_bit) {
+    for (int i = 1; i <= i_bit; ++i) {
+        for (int j = i; j > 0; --j) {
+            data = bitonic_cube(j, data, i);
+            // debugPrint(data); // Uncomment this line to walk through the bitonic sort
+        }
+    }
+}
+
 // Bitonic Sorting Algorithm
 // See https://www.geeksforgeeks.org/bitonic-sort/
 int main(int argc, char **argv) {
@@ -160,12 +173,7 @@ int main(int argc, char **argv) {
     int i_bit = static_cast<int>(std::log(size) / std::log(2));
 
     // Perform the bitonic sort
-    for (int i = 1; i <= i_bit; ++i) {
-        for (int j = i; j > 0; --j) {
-            data = bitonic_cube(j, data, i);
-            // debugPrint(data); // Uncomment this line to walk through the bitonic sort
-        }
-    }
+    bitonic_sort(data, i_bit);
 
     // Send data back to master process
     if (rank > 0) {
